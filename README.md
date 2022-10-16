@@ -17,8 +17,8 @@ $ git checkout -b my-new-branch
 
 ```sh
 # Only use yarn as your package manager.
-$ cd src/frontend && yarn start
-$ cd ../backend && yarn start
+$ cd src/frontend && yarn install && yarn start
+$ cd ../backend && yarn install && yarn start
 ```
 
 5. Commit your changes and push your branch:
