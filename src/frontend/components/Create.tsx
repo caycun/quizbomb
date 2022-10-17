@@ -29,7 +29,7 @@ export default function Create() {
   async function getRooms(IuniqueId: string) {
     console.log(IuniqueId);
 
-    await fetch(`https://WorstFeistyBlogclient.aikencunanan17.repl.co/device/${IuniqueId}/rooms`).then(response => {
+    await fetch(`https://localhost:3000/device/${IuniqueId}/rooms`).then(response => {
         response.json().then(data => {
             setRooms(data)
         })
