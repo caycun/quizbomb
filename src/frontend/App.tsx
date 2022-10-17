@@ -10,9 +10,10 @@ export const socket = io("http://localhost:3000");
 
 const Stack = createNativeStackNavigator();
 
-const Home = ({ navigation }) => {
-    const [displayName, setDisplayName] = useState<string>("");
-    const [room, setRoom] = useState<string>("");
+export default function App() {
+    const [whatToDisplay, setWhatToDisplay] = useState<string>("Home")
+ const Home = () => {
+     const [displayName, setDisplayName] = useState<string>("");
 
 
     return (
@@ -21,24 +22,17 @@ const Home = ({ navigation }) => {
             <TextInput placeholder="Enter your username..." style={styles.input} value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
             <Button title="Join"/>
             <Button title="Create" onPress={() => 
-                navigation.navigate('Create', {room: room})
+                setWhatToDisplay("Create")
             }/>
             </View> 
            )
 }
 
-export default function App() {
- 
+
   return (
-      <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen
-          name="Home"
-          component={Home}
-        />
-    <Stack.Screen name="Create" component={Create} />
-    </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+     {whatToDisplay == "Create" ? <Create /> : <Home />}
+    </View>
  );
 }
 
